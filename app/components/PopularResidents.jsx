@@ -19,7 +19,7 @@ function PopularResidents() {
         </Link>
       </div>
       <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 gap-x-[60px] gap-y-[50px] mt-8">
-        {residents.map((resident) => {
+        {residents.slice(0, 5).map((resident) => {
           return (
             <div
               key={resident.id}

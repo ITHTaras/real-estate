@@ -11,55 +11,15 @@ import ReactSlider from "react-slider";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { AsyncPaginate } from "react-select-async-paginate";
+import { loadOptions } from "../api/api";
 
 let filterPos;
-
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_CITY_API_KEY,
-    "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
-  },
-};
 
 function Intro() {
   // Filter
   const [search, setSearch] = useState(null);
   const [rooms, setRooms] = useState(1);
-  const [range, setRange] = useState([50, 1000]);
-
-  const loadOptions = async (inputValue) => {
-    if (inputValue === "")
-      return {
-        options: [],
-        hasMore: false,
-      };
-    const url = `https://wft-geo-db.p.rapidapi.com/v1/geo/cities?namePrefix=${inputValue}`;
-    let result = [];
-
-    try {
-      const response = await fetch(url, options);
-
-      result = await response.json();
-
-      return {
-        options: result.data.map((city) => {
-          return {
-            value: city.id,
-            label: `${city.name}, ${city.region}`,
-            additional: {
-              city: city.name,
-              lat: city.latitude,
-              long: city.longitude,
-            },
-          };
-        }),
-        hasMore: false,
-      };
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const [range, setRange] = useState([100, 10000]);
 
   const filterRef = useRef();
 
@@ -129,11 +89,11 @@ function Intro() {
                 : "absolute md:w-4/5 lg:w-[90%]"
             } ease-in-out duration-500 z-50 left-0 right-0 mx-auto bg-white px-6 md:px-10 py-[30px] flex flex-col lg:flex-row items-center gap-5 xl:gap-14 select-box`}
           >
-            <div className="flex flex-col max-lg:items-center">
+            <div className="flex flex-col max-lg:items-center relative">
               <h4 className="text-xl font-medium">Locations</h4>
               <AsyncPaginate
                 className="mt-4 min-w-[170px] max-w-[170px]"
-                placeholder="Search for city"
+                placeholder='Type in "Berlin"'
                 debounceTimeout={1000}
                 value={search}
                 onChange={(searchData) => setSearch(searchData)}
@@ -182,9 +142,9 @@ function Intro() {
                   className="relative w-full flex items-center h-6 z-[2]"
                   thumbClassName="slider-thumb"
                   trackClassName="slider-track"
-                  defaultValue={[5, 100]}
+                  defaultValue={[1, 100]}
                   onChange={(state) => {
-                    setRange([state[0] * 10, state[1] * 10]);
+                    setRange([state[0] * 100, state[1] * 100]);
                   }}
                   renderThumb={(props, state) => (
                     <div {...props} key={state.index}></div>
@@ -204,8 +164,8 @@ function Intro() {
                       lat: search.additional.lat,
                       long: search.additional.long,
                       rooms,
-                      range1: range[0] / 10,
-                      range2: range[1] / 10,
+                      range1: range[0],
+                      range2: range[1],
                     }
                   : {},
               }}
