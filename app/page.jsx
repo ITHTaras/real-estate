@@ -5,7 +5,6 @@ import Intro2 from "./components/Intro2";
 import PopularResidents from "./components/PopularResidents";
 import Reviews from "./components/Reviews";
 import Callback from "./components/Callback";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <PopularResidents />
       <Reviews />
       <Callback />
-      <Footer />
     </main>
   );
 }

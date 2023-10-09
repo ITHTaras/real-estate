@@ -19,14 +19,19 @@ function PopularResidents() {
         </Link>
       </div>
       <div className="grid grid-cols-1 min-[820px]:grid-cols-2 lg:grid-cols-3 gap-x-[60px] gap-y-[50px] mt-8">
-        {residents.slice(0, 5).map((resident) => {
+        {residents.slice(0, 6).map((resident) => {
           return (
             <div
               key={resident.id}
               className="bg-white p-5 rounded-lg shadow-[0_24px_34px_0_rgba(80,79,89,0.14)]"
             >
-              <div className="w-full">
-                <Image className="pos-unset" fill src={resident.img} alt="" />
+              <div className="relative w-full aspect-square">
+                <Image
+                  sizes="(max-width: 820px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw"
+                  fill
+                  src={resident.img}
+                  alt=""
+                />
               </div>
               <h3 className="text-xl font-semibold mt-8">{resident.name}</h3>
               <div className="flex justify-between mt-4">

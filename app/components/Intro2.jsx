@@ -72,6 +72,7 @@ function Intro2() {
       <div className="hidden min-[940px]:block lg:w-1/3 ml-auto relative">
         <Image
           className="pos-unset object-contain"
+          sizes="(max-width: 940px) 0vw, (max-width: 1536px) 35vw"
           src={introImg2}
           fill
           alt=""

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="bg-[#f7f7f7]">
       <div className="grid grid-cols-1 max-md:text-center md:grid-cols-2 min-[860px]:grid-cols-3 lg:grid-cols-6 gap-16 mt-36 px-28">
         <div className="lg:col-span-2 lg:self-center">
           <h1 className="text-3xl font-bold lg:mt-3 mb-3">
@@ -10,10 +10,10 @@ function Footer() {
           </h1>
           <p className="text-base text-customgray">
             RentWonder is the best place to buy and rent your dream home
-            throughout Indonesia
+            throughout the world
           </p>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">For Beginner</h3>
           <Link className="text-customgray mt-2" href="/about">
             About
@@ -25,7 +25,7 @@ function Footer() {
             Promotion
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">Overview</h3>
           <Link className="text-customgray mt-2" href="/residents">
             Products
@@ -34,7 +34,7 @@ function Footer() {
             Categories
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">Explore Us</h3>
           <Link className="text-customgray mt-2" href="/career">
             Our Career
@@ -46,7 +46,7 @@ function Footer() {
             Terms & Conditions
           </Link>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">Connect Us</h3>
           <Link
             className="text-customgray mt-2"

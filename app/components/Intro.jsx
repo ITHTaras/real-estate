@@ -25,18 +25,16 @@ function Intro() {
 
   const [filterTop, setFilterTop] = useState(false);
 
-  // Set filterPos
   useEffect(() => {
+    // Set filterPos
     filterPos = parseInt(
       filterRef.current.getBoundingClientRect().top -
         document.body.getBoundingClientRect().top
     );
-  }, []);
 
-  // Fix Filters
-  useEffect(() => {
     if (window.innerWidth < 1024) return;
 
+    // Fix Filters
     window.addEventListener(
       "scroll",
       () => {
@@ -182,9 +180,10 @@ function Intro() {
           </div>
         </div>
       </div>
-      <div className="hidden lg:block lg:w-1/2">
+      <div className="relative hidden lg:block lg:w-1/2">
         <Image
-          className="pos-unset object-contain"
+          className="object-contain"
+          sizes="(max-width: 1024px) 0vw, (max-width: 1536px) 50vw"
           src={introImg}
           fill
           alt=""

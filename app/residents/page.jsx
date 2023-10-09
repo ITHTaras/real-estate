@@ -1,9 +1,8 @@
 "use client";
 import ReactSlider from "react-slider";
-import Map from "../components/Map";
 import { AsyncPaginate } from "react-select-async-paginate";
 import { useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { residents } from "../data";
 import Image from "next/image";
 import locationIcon from "../../public/images/location.svg";
@@ -13,10 +12,50 @@ import Link from "next/link";
 import { loadOptions } from "../api/api";
 
 import "../products.css";
+import Map from "../components/Map";
+
+let mapPos;
 
 function Page() {
   // URL Params
   const searchParams = useSearchParams();
+
+  // Map fixing
+  const mapRef = useRef();
+  const pageRef = useRef();
+
+  const [mapFixed, setMapFixed] = useState(false);
+  const [freezeMap, setFreezeMap] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) return;
+
+    mapPos =
+      mapRef.current.getBoundingClientRect().top -
+      document.body.getBoundingClientRect().top;
+
+    window.addEventListener("scroll", () => {
+      if (mapPos + document.body.getBoundingClientRect().top <= 0) {
+        setMapFixed(true);
+
+        const hasHitBottom =
+          pageRef.current.getBoundingClientRect().bottom - window.innerHeight;
+
+        // if the bottom of the screen reached the bottom of an element
+        if (hasHitBottom <= 0) {
+          setFreezeMap(pageRef.current.offsetHeight - window.innerHeight);
+        } else {
+          setFreezeMap(false);
+        }
+      } else {
+        setMapFixed(false);
+      }
+    });
+
+    return () => {
+      window.removeEventListener("scroll", null);
+    };
+  }, []);
 
   // Filter
   const [search, setSearch] = useState({
@@ -33,10 +72,10 @@ function Page() {
     searchParams.get("range2") ? searchParams.get("range2") : 10000,
   ]);
 
-  const pattern = /^[a-zA-Z]+$/;
+  // Handlers
   const handleOnRoomsChange = (el) => {
     if (
-      !pattern.test(el.target.value) &&
+      !Number.isNaN(el.target.value) &&
       el.target.value <= 100 &&
       el.target.value > 0
     ) {
@@ -44,12 +83,15 @@ function Page() {
     }
   };
   const handleOnMaxAreaChange = (el) => {
-    if (
+    if (el.target.value === "") setMaxArea(1);
+    else if (
       Number.isInteger(+el.target.value) &&
       +el.target.value > 0 &&
       +el.target.value <= 100
     ) {
       setMaxArea(el.target.value);
+    } else if (+el.target.value === 0) {
+      setMaxArea(1);
     }
   };
 
@@ -148,10 +190,10 @@ function Page() {
               trackClassName="slider-track"
               defaultValue={[
                 searchParams.get("range1")
-                  ? parseInt(searchParams.get("range1"))
+                  ? parseInt(searchParams.get("range1") / 100)
                   : 1,
                 searchParams.get("range2")
-                  ? parseInt(searchParams.get("range2"))
+                  ? parseInt(searchParams.get("range2") / 100)
                   : 100,
               ]}
               onChange={(state) => {
@@ -180,56 +222,78 @@ function Page() {
         </div>
       </div>
       <div className="w-full h-[1px] bg-gray-300"></div>
-      {/* Residents */}
-      <div className="max-w-[66%] mt-5 px-8">
-        <h2 className="text-lg font-medium">
-          {sortedResidents.length} Resident
-          {sortedResidents.length > 1 || sortedResidents.length === 0
-            ? "s"
-            : ""}{" "}
-          in{" "}
-          {search.name.indexOf(",") > -1
-            ? search.name.slice(0, search.name.indexOf(","))
-            : search.name}
-        </h2>
-        <div className="grid grid-cols-3 gap-7 mt-5">
-          {sortedResidents.map((resident) => {
-            return (
-              <Link href={`residents/${resident.id}`} key={resident.id}>
-                <div className="w-full">
-                  <Image
-                    className="pos-unset item-image"
-                    fill
-                    src={resident.img}
-                    alt=""
-                  />
-                </div>
-                {/* Description */}
-                <div className="flex justify-between mt-3">
-                  <h3 className="text-xl font-semibold">{resident.name}</h3>
-                  <div className="flex items-center">
-                    <Image src={starIcon} alt="" width={15} height={14} />
+      <div ref={pageRef} className="grid md:grid-cols-3">
+        {/* Residents */}
+        <div className="md:col-span-2 mt-5 px-8">
+          <h2 className="text-lg font-medium">
+            {sortedResidents.length} Resident
+            {sortedResidents.length > 1 || sortedResidents.length === 0
+              ? "s"
+              : ""}{" "}
+            in{" "}
+            {search.name.indexOf(",") > -1
+              ? search.name.slice(0, search.name.indexOf(","))
+              : search.name}
+          </h2>
+          <div className="grid sm:grid-cols-2 min-[1148px]:grid-cols-3 gap-7 mt-5">
+            {sortedResidents.map((resident) => {
+              return (
+                <div key={resident.id}>
+                  <div className="relative h-auto aspect-square">
+                    <Image
+                      className="rounded-lg object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1536px) 33vw"
+                      src={resident.img}
+                      alt=""
+                    />
+                  </div>
+                  {/* Description */}
+                  <div className="flex justify-between mt-3">
+                    <h3 className="text-xl font-semibold">{resident.name}</h3>
+                    <div className="flex items-center">
+                      <Image src={starIcon} alt="" width={15} height={14} />
+                      <h6 className="text-customgray text-base ml-[6px]">
+                        {resident.rating}
+                      </h6>
+                    </div>
+                  </div>
+                  <div className="flex items-center mt-2">
+                    <Image src={sofaImg} alt="" width={22} height={22} />
+                    <h6 className="text-customgray text-base ml-2 mr-2">
+                      {resident.rooms}+1
+                    </h6>
+                    <Image src={locationIcon} alt="" width={19} height={22} />
                     <h6 className="text-customgray text-base ml-[6px]">
-                      {resident.rating}
+                      {resident.location}
                     </h6>
                   </div>
+                  <h3 className="text-xl mt-3">
+                    <span className="font-semibold">{resident.price}$</span>{" "}
+                    Month
+                  </h3>
                 </div>
-                <div className="flex items-center mt-2">
-                  <Image src={sofaImg} alt="" width={22} height={22} />
-                  <h6 className="text-customgray text-base ml-2 mr-2">
-                    {resident.rooms}+1
-                  </h6>
-                  <Image src={locationIcon} alt="" width={19} height={22} />
-                  <h6 className="text-customgray text-base ml-[6px]">
-                    {resident.location}
-                  </h6>
-                </div>
-                <h3 className="text-xl mt-3">
-                  <span className="font-semibold">{resident.price}$</span> Month
-                </h3>
-              </Link>
-            );
-          })}
+              );
+            })}
+          </div>
+        </div>
+        {/* Map */}
+        <div
+          style={{ top: freezeMap }}
+          ref={mapRef}
+          className="relative h-screen"
+        >
+          <div
+            className={`${
+              mapFixed
+                ? freezeMap !== false
+                  ? "absolute"
+                  : "fixed top-0 max-w-[33.333%]"
+                : "absolute"
+            } right-0 w-full h-full`}
+          >
+            <Map center={[search.lat, search.long]} />
+          </div>
         </div>
       </div>
     </div>
