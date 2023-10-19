@@ -1,19 +1,3 @@
-const locations = [
-  { id: 1, name: "City" },
-  { id: 2, name: "Berlin" },
-  { id: 3, name: "Ottawa" },
-  { id: 4, name: "Canberra" },
-  { id: 5, name: "Kyiv" },
-  { id: 6, name: "Paris" },
-  { id: 7, name: "Rome" },
-];
-const types = [
-  { id: 1, name: "House" },
-  { id: 2, name: "Apartment" },
-  { id: 3, name: "Hotel" },
-  { id: 4, name: "Villa" },
-];
-
 const residents = [
   {
     id: 1,
@@ -58,17 +42,6 @@ const residents = [
     rooms: 1,
     lat: 33,
     long: 13,
-  },
-  {
-    id: 5,
-    img: "/../public/images/5.png",
-    name: "Tlewa bormeso",
-    location: "Sevilla, Spain",
-    rating: 4.4,
-    price: 480,
-    rooms: 3,
-    lat: 1,
-    long: 1,
   },
   {
     id: 6,
@@ -128,8 +101,8 @@ const residents = [
   {
     id: 11,
     img: "/../public/images/5.png",
-    name: "Tlewa bormeso",
-    location: "Sevilla, Spain",
+    name: "Ferienwohnung",
+    location: "Berlin, Germany",
     rating: 4.4,
     price: 480,
     rooms: 2,
@@ -607,4 +580,52 @@ const reviews = [
   },
 ];
 
-export { locations, types, residents, reviews };
+const jobs = [
+  {
+    name: "Design",
+    jobs: [
+      {
+        name: "Product Designer",
+        salary: 80,
+        location: "Melbourne, Australia",
+      },
+      {
+        name: "UX Designer",
+        salary: 65,
+        location: "Melbourne, Australia",
+      },
+    ],
+  },
+  {
+    name: "Software Development",
+    jobs: [
+      {
+        name: "Engineering Manager",
+        salary: 90,
+        location: `Melbourne, ${"Australia"}`,
+      },
+      {
+        name: "Frontend Developer",
+        salary: 75,
+        location: `Berlin, ${"Germany"}`,
+      },
+      {
+        name: "Backend Developer",
+        salary: 85,
+        location: "New York, USA",
+      },
+    ],
+  },
+  {
+    name: "Customer Success",
+    jobs: [
+      {
+        name: "Customer Success Manager",
+        salary: 70,
+        location: `Frankfurt am Main, ${"Germany"}`,
+      },
+    ],
+  },
+];
+
+export { jobs, residents, reviews };

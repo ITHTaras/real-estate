@@ -1,3 +1,12 @@
 .item-image {
   border-radius: 8px;
 }
+
+.product-image-block {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.product-image-block:hover {
+  opacity: 0.6;
+}

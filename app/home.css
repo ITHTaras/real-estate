@@ -49,15 +49,6 @@
   border-radius: 12px;
 }
 
-.slider-thumb {
-  background-color: #1b00ea;
-  width: 24px;
-  height: 24px;
-  border-radius: 100%;
-  outline: none;
-  cursor: pointer;
-}
-
 .rooms-input {
   border-radius: 2rem;
 }

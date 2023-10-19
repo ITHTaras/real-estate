@@ -36,7 +36,7 @@ function Intro2() {
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 md:gap-x-0 gap-y-8 mt-14">
           <div>
-            <h4 className="text-[#1B00EA] text-[32px] font-medium">
+            <h4 className="text-customblue text-[32px] font-medium">
               {canCount ? <CountUp end={3} /> : 0}K+
             </h4>
             <p className="text-customgray font-normal text-lg max-w-[160px]">
@@ -44,7 +44,7 @@ function Intro2() {
             </p>
           </div>
           <div>
-            <h4 className="text-[#1B00EA] text-[32px] font-medium">
+            <h4 className="text-customblue text-[32px] font-medium">
               {canCount ? <CountUp end={225} /> : 0}K+
             </h4>
             <p className="text-customgray font-normal text-lg max-w-[160px]">
@@ -52,7 +52,7 @@ function Intro2() {
             </p>
           </div>
           <div>
-            <h4 className="text-[#1B00EA] text-[32px] font-medium">
+            <h4 className="text-customblue text-[32px] font-medium">
               {canCount ? <CountUp end={316} /> : 0}+
             </h4>
             <p className="text-customgray font-normal text-lg max-w-[160px]">
@@ -60,7 +60,7 @@ function Intro2() {
             </p>
           </div>
           <div>
-            <h4 className="text-[#1B00EA] text-[32px] font-medium">
+            <h4 className="text-customblue text-[32px] font-medium">
               {canCount ? <CountUp end={749} /> : 0}+
             </h4>
             <p className="text-customgray font-normal text-lg max-w-[160px]">

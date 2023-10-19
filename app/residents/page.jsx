@@ -5,7 +5,6 @@ import { useSearchParams } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { residents } from "../data";
 import Image from "next/image";
-import locationIcon from "../../public/images/location.svg";
 import starIcon from "../../public/images/star.svg";
 import sofaImg from "../../public/images/sofa.svg";
 import Link from "next/link";
@@ -35,6 +34,8 @@ function Page() {
       document.body.getBoundingClientRect().top;
 
     window.addEventListener("scroll", () => {
+      if (!pageRef.current) return;
+
       if (mapPos + document.body.getBoundingClientRect().top <= 0) {
         setMapFixed(true);
 
@@ -93,6 +94,17 @@ function Page() {
     } else if (+el.target.value === 0) {
       setMaxArea(1);
     }
+  };
+  const handleProductClick = (lat, long) => {
+    window.scrollTo({
+      top: mapRef.current.offsetTop,
+      behavior: "smooth",
+    });
+    setSearch({
+      ...search,
+      lat,
+      long,
+    });
   };
 
   // Sort Residents
@@ -160,7 +172,7 @@ function Page() {
               }}
             ></button>
             <input
-              className="outline-none max-w-[2.5rem] text-center text-xl text-[#1b00ea] font-medium"
+              className="outline-none max-w-[2.5rem] text-center text-xl text-customblue font-medium"
               value={rooms}
               onChange={handleOnRoomsChange}
               type="text"
@@ -178,7 +190,7 @@ function Page() {
         <div className="flex flex-col max-lg:items-center w-full max-w-sm">
           <div className="w-full flex justify-between">
             <h4 className="text-xl font-medium">Rent Range</h4>
-            <h6 className="text-[#1b00ea] ml-14 md:ml-auto font-medium">
+            <h6 className="text-customblue ml-14 md:ml-auto font-medium">
               ${range[0]} - ${range[1]}
             </h6>
           </div>
@@ -213,7 +225,7 @@ function Page() {
           <h4 className="text-xl font-medium">Area (Km)</h4>
           <div className="mt-3 w-full flex justify-center bg-white rooms-input">
             <input
-              className="outline-none max-w-[2.5rem] text-center text-xl text-[#1b00ea] font-medium"
+              className="outline-none max-w-[2.5rem] text-center text-xl text-customblue font-medium"
               value={maxArea}
               onChange={handleOnMaxAreaChange}
               type="text"
@@ -239,7 +251,12 @@ function Page() {
             {sortedResidents.map((resident) => {
               return (
                 <div key={resident.id}>
-                  <div className="relative h-auto aspect-square">
+                  <div
+                    onClick={() =>
+                      handleProductClick(resident.lat, resident.long)
+                    }
+                    className="relative h-auto aspect-square product-image-block"
+                  >
                     <Image
                       className="rounded-lg object-cover"
                       fill
@@ -249,29 +266,31 @@ function Page() {
                     />
                   </div>
                   {/* Description */}
-                  <div className="flex justify-between mt-3">
-                    <h3 className="text-xl font-semibold">{resident.name}</h3>
-                    <div className="flex items-center">
-                      <Image src={starIcon} alt="" width={15} height={14} />
-                      <h6 className="text-customgray text-base ml-[6px]">
-                        {resident.rating}
+                  <Link href={`/residents/${resident.id}`}>
+                    <div className="flex justify-between mt-3">
+                      <h3 className="text-base font-semibold">
+                        {resident.name.length < 25
+                          ? resident.name
+                          : resident.name.slice(0, 25) + "..."}
+                      </h3>
+                      <div className="flex items-center">
+                        <Image src={starIcon} alt="" width={15} height={14} />
+                        <h6 className="text-customgray text-base ml-[6px]">
+                          {resident.rating}
+                        </h6>
+                      </div>
+                    </div>
+                    <div className="flex mt-1">
+                      <Image src={sofaImg} alt="" width={20} height={20} />
+                      <h6 className="text-customgray text-base ml-2 mr-2">
+                        {resident.rooms}+1
                       </h6>
                     </div>
-                  </div>
-                  <div className="flex items-center mt-2">
-                    <Image src={sofaImg} alt="" width={22} height={22} />
-                    <h6 className="text-customgray text-base ml-2 mr-2">
-                      {resident.rooms}+1
-                    </h6>
-                    <Image src={locationIcon} alt="" width={19} height={22} />
-                    <h6 className="text-customgray text-base ml-[6px]">
-                      {resident.location}
-                    </h6>
-                  </div>
-                  <h3 className="text-xl mt-3">
-                    <span className="font-semibold">{resident.price}$</span>{" "}
-                    Month
-                  </h3>
+                    <h3 className="mt-3">
+                      <span className="font-semibold">{resident.price} $</span>{" "}
+                      Month
+                    </h3>
+                  </Link>
                 </div>
               );
             })}
@@ -281,7 +300,7 @@ function Page() {
         <div
           style={{ top: freezeMap }}
           ref={mapRef}
-          className="relative h-screen"
+          className="relative h-[80vh] md:h-screen max-md:mt-6"
         >
           <div
             className={`${
@@ -291,8 +310,12 @@ function Page() {
                   : "fixed top-0 max-w-[33.333%]"
                 : "absolute"
             } right-0 w-full h-full`}
+            style={{ zIndex: 50 }}
           >
-            <Map center={[search.lat, search.long]} />
+            <Map
+              center={[search.lat, search.long]}
+              residents={sortedResidents}
+            />
           </div>
         </div>
       </div>

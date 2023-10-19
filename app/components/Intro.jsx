@@ -114,7 +114,7 @@ function Intro() {
                   }}
                 ></button>
                 <input
-                  className="outline-none max-w-[2.5rem] text-center text-xl text-[#1b00ea] font-medium"
+                  className="outline-none max-w-[2.5rem] text-center text-xl text-customblue font-medium"
                   value={rooms}
                   onChange={handleOnChange}
                   type="text"
@@ -131,7 +131,7 @@ function Intro() {
             <div className="flex flex-col max-lg:items-center w-full max-w-sm">
               <div className="w-full flex justify-between">
                 <h4 className="text-xl font-medium">Rent Range</h4>
-                <h6 className="text-[#1b00ea] ml-14 md:ml-auto font-medium">
+                <h6 className="text-customblue ml-14 md:ml-auto font-medium">
                   ${range[0]} - ${range[1]}
                 </h6>
               </div>
@@ -170,7 +170,7 @@ function Intro() {
               aria-disabled={!search}
               className={`${
                 search
-                  ? "bg-[#1B00EA] text-white"
+                  ? "bg-customblue text-white"
                   : "bg-neutral-300 text-gray-400"
               } flex justify-center items-center mt-4 lg:mt-0 lg:ml-auto px-12 py-5 rounded-[4px]`}
             >
