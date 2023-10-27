@@ -26,7 +26,12 @@ function PopularResidents() {
               className="bg-white p-5 rounded-lg shadow-[0_24px_34px_0_rgba(80,79,89,0.14)]"
             >
               <div className="relative w-full aspect-square">
-                <img style={{ height: "100%" }} src={"/1.png"} alt="" />
+                <Image
+                  sizes="(max-width: 820px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw"
+                  fill
+                  src={resident.img}
+                  alt=""
+                />
               </div>
               <h3 className="text-xl font-semibold mt-8">{resident.name}</h3>
               <div className="mt-4">

@@ -1,7 +1,7 @@
 const residents = [
   {
     id: 1,
-    img: "/../public/images/1.png",
+    img: "/1.png",
     name: "Duncans Mills",
 
     rating: 4.9,
@@ -12,7 +12,7 @@ const residents = [
   },
   {
     id: 2,
-    img: "/../public/images/2.png",
+    img: "/2.png",
     name: "Villa Dago",
 
     rating: 5.0,
@@ -23,7 +23,7 @@ const residents = [
   },
   {
     id: 3,
-    img: "/../public/images/3.png",
+    img: "/3.png",
     name: "Jungle Paradise",
 
     rating: 4.3,
@@ -34,7 +34,7 @@ const residents = [
   },
   {
     id: 4,
-    img: "/../public/images/4.png",
+    img: "/4.png",
     name: "Surya Kencana",
 
     rating: 4.9,
@@ -45,7 +45,7 @@ const residents = [
   },
   {
     id: 6,
-    img: "/../public/images/6.png",
+    img: "/6.png",
     name: "Penthouse with Schwimmbad",
 
     rating: 4.6,
@@ -56,7 +56,7 @@ const residents = [
   },
   {
     id: 7,
-    img: "/../public/images/1.png",
+    img: "/1.png",
     name: "Duncans Mills",
     rating: 4.9,
     price: 760,
@@ -66,7 +66,7 @@ const residents = [
   },
   {
     id: 8,
-    img: "/../public/images/2.png",
+    img: "/2.png",
     name: "Villa Dago",
     rating: 5.0,
     price: 380,
@@ -76,7 +76,7 @@ const residents = [
   },
   {
     id: 9,
-    img: "/../public/images/3.png",
+    img: "/3.png",
     name: "Jungle Paradise",
     rating: 4.3,
     price: 400,
@@ -86,7 +86,7 @@ const residents = [
   },
   {
     id: 10,
-    img: "/../public/images/4.png",
+    img: "/4.png",
     name: "Schöneck",
     rating: 4.9,
     price: 330,
@@ -96,7 +96,7 @@ const residents = [
   },
   {
     id: 11,
-    img: "/../public/images/5.png",
+    img: "/5.png",
     name: "Ferienwohnung",
 
     rating: 4.4,
@@ -107,7 +107,7 @@ const residents = [
   },
   {
     id: 12,
-    img: "/../public/images/6.png",
+    img: "/6.png",
     name: "Hinter dem Alltag",
 
     rating: 4.6,
@@ -118,7 +118,7 @@ const residents = [
   },
   {
     id: 13,
-    img: "/../public/images/13.jpg",
+    img: "/13.jpg",
     name: "Cozy Apartment in the City",
 
     rating: 4.5,
@@ -129,7 +129,7 @@ const residents = [
   },
   {
     id: 14,
-    img: "/../public/images/14.png",
+    img: "/14.png",
     name: "Modern Loft with a View",
     rating: 4.8,
     price: 1200,
@@ -139,7 +139,7 @@ const residents = [
   },
   {
     id: 15,
-    img: "/../public/images/15.png",
+    img: "/15.png",
     name: "Sunny Beachfront Villa",
     rating: 4.7,
     price: 530,
@@ -149,7 +149,7 @@ const residents = [
   },
   {
     id: 16,
-    img: "/../public/images/34.png",
+    img: "/34.png",
     name: "Charming Cottage in the Countryside",
     rating: 4.9,
     price: 230,
@@ -159,7 +159,7 @@ const residents = [
   },
   {
     id: 17,
-    img: "/../public/images/17.jpg",
+    img: "/17.jpg",
     name: "Luxury Penthouse in the Heart of Paris",
     rating: 4.6,
     price: 320,
@@ -169,7 +169,7 @@ const residents = [
   },
   {
     id: 18,
-    img: "/../public/images/17.jpg",
+    img: "/17.jpg",
     name: "Seaside Retreat in Maldives",
     rating: 4.7,
     price: 740,
@@ -180,7 +180,7 @@ const residents = [
   {
     id: 19,
     name: "Rustic Cabin in the Rocky Mountains",
-    img: "/../public/images/20.png",
+    img: "/20.png",
     rating: 4.4,
     price: 800,
     rooms: 2,
@@ -189,7 +189,7 @@ const residents = [
   },
   {
     id: 20,
-    img: "/../public/images/20.png",
+    img: "/20.png",
     name: "Rustic Cabin in the Rocky Mountains",
     rating: 4.4,
     price: 800,
@@ -199,7 +199,7 @@ const residents = [
   },
   {
     id: 21,
-    img: "/../public/images/21.png",
+    img: "/21.png",
     name: "Seaview Apartment in Santorini",
     rating: 4.7,
     price: 2800,
@@ -209,7 +209,7 @@ const residents = [
   },
   {
     id: 22,
-    img: "/../public/images/22.png",
+    img: "/22.png",
     name: "Mountain Retreat in Switzerland",
     rating: 4.9,
     price: 4200,
@@ -219,7 +219,7 @@ const residents = [
   },
   {
     id: 23,
-    img: "/../public/images/23.png",
+    img: "/23.png",
     name: "Cosy Cabin in the Woods",
     rating: 4.6,
     price: 1500,
@@ -229,7 +229,7 @@ const residents = [
   },
   {
     id: 24,
-    img: "/../public/images/24.png",
+    img: "/24.png",
     name: "Skyline Apartment in Chicago",
     rating: 4.5,
     price: 1900,
@@ -239,7 +239,7 @@ const residents = [
   },
   {
     id: 25,
-    img: "/../public/images/25.png",
+    img: "/25.png",
     name: "Chic Loft in Barcelona",
     rating: 4.8,
     price: 3200,
@@ -249,7 +249,7 @@ const residents = [
   },
   {
     id: 26,
-    img: "/../public/images/26.png",
+    img: "/26.png",
     name: "Riverside Retreat in Vienna",
     rating: 4.4,
     price: 2000,
@@ -259,7 +259,7 @@ const residents = [
   },
   {
     id: 27,
-    img: "/../public/images/27.png",
+    img: "/27.png",
     name: "Mountain View Chalet in Switzerland",
     rating: 4.7,
     price: 3000,
@@ -269,7 +269,7 @@ const residents = [
   },
   {
     id: 28,
-    img: "/../public/images/28.png",
+    img: "/28.png",
     name: "Serenity Villa in Bali",
     rating: 4.9,
     price: 2200,
@@ -279,7 +279,7 @@ const residents = [
   },
   {
     id: 29,
-    img: "/../public/images/29.png",
+    img: "/29.png",
     name: "Stylish Loft in Amsterdam",
     rating: 4.6,
     price: 2700,
@@ -289,7 +289,7 @@ const residents = [
   },
   {
     id: 30,
-    img: "/../public/images/30.png",
+    img: "/30.png",
     name: "Seaside Villa in Malibu",
     rating: 4.5,
     price: 3800,
@@ -299,7 +299,7 @@ const residents = [
   },
   {
     id: 31,
-    img: "/../public/images/31.png",
+    img: "/31.png",
     name: "Historic Apartment in Rome",
 
     rating: 4.7,
@@ -310,7 +310,7 @@ const residents = [
   },
   {
     id: 32,
-    img: "/../public/images/32.png",
+    img: "/32.png",
     name: "Penthouse Suite in Dubai",
     rating: 4.8,
     price: 4500,
@@ -320,7 +320,7 @@ const residents = [
   },
   {
     id: 33,
-    img: "/../public/images/33.png",
+    img: "/33.png",
     name: "Lakefront Cabin in Canada",
     rating: 4.6,
     price: 1700,
@@ -330,7 +330,7 @@ const residents = [
   },
   {
     id: 34,
-    img: "/../public/images/34.png",
+    img: "/34.png",
     name: "Elegant Townhouse in London",
     rating: 4.9,
     price: 2800,
@@ -340,7 +340,7 @@ const residents = [
   },
   {
     id: 35,
-    img: "/../public/images/35.png",
+    img: "/35.png",
     name: "Beachfront Bungalow in Hawaii",
     rating: 4.5,
     price: 3600,
@@ -350,7 +350,7 @@ const residents = [
   },
   {
     id: 36,
-    img: "/../public/images/36.png",
+    img: "/36.png",
     name: "Countryside Cottage in Ireland",
     rating: 4.7,
     price: 2000,
@@ -360,7 +360,7 @@ const residents = [
   },
   {
     id: 37,
-    img: "/../public/images/37.png",
+    img: "/37.png",
     name: "City Center Studio in Prague",
     rating: 4.4,
     price: 1500,
@@ -370,7 +370,7 @@ const residents = [
   },
   {
     id: 38,
-    img: "/../public/images/38.png",
+    img: "/38.png",
     name: "Mansion House in New Orleans",
     rating: 4.8,
     price: 3200,
@@ -380,7 +380,7 @@ const residents = [
   },
   {
     id: 0,
-    img: "/../public/images/39.png",
+    img: "/39.png",
     name: "Historic Villa in Florence",
     rating: 4.6,
     price: 2300,
@@ -390,7 +390,7 @@ const residents = [
   },
   {
     id: 39,
-    img: "/../public/images/39.jpg",
+    img: "/39.jpg",
     name: "Modern Apartment in Berlin Mitte",
 
     rating: 4.5,
@@ -401,7 +401,7 @@ const residents = [
   },
   {
     id: 40,
-    img: "/../public/images/40.jpg",
+    img: "/40.jpg",
     name: "Charming Studio near Alexanderplatz",
 
     rating: 4.8,
@@ -412,7 +412,7 @@ const residents = [
   },
   {
     id: 41,
-    img: "/../public/images/41.jpg",
+    img: "/41.jpg",
     name: "Spacious Loft in Kreuzberg",
 
     rating: 4.7,
@@ -423,7 +423,7 @@ const residents = [
   },
   {
     id: 42,
-    img: "/../public/images/42.png",
+    img: "/42.png",
     name: "Luxury Penthouse in Prenzlauer Berg",
 
     rating: 4.9,
@@ -434,7 +434,7 @@ const residents = [
   },
   {
     id: 43,
-    img: "/../public/images/43.jpg",
+    img: "/43.jpg",
     name: "Cozy Apartment in Friedrichshain",
 
     rating: 4.6,
@@ -445,7 +445,7 @@ const residents = [
   },
   {
     id: 44,
-    img: "/../public/images/44.jpg",
+    img: "/44.jpg",
     name: "Riverside Retreat in Treptow",
 
     rating: 4.4,
@@ -456,7 +456,7 @@ const residents = [
   },
   {
     id: 45,
-    img: "/../public/images/45.png",
+    img: "/45.png",
     name: "Modern Apartment near Tiergarten",
 
     rating: 4.7,
@@ -467,7 +467,7 @@ const residents = [
   },
   {
     id: 46,
-    img: "/../public/images/46.png",
+    img: "/46.png",
     name: "Chic Loft in Charlottenburg",
 
     rating: 4.8,
@@ -478,7 +478,7 @@ const residents = [
   },
   {
     id: 47,
-    img: "/../public/images/47.png",
+    img: "/47.png",
     name: "Sunny Apartment in Wedding",
 
     rating: 4.6,
@@ -489,7 +489,7 @@ const residents = [
   },
   {
     id: 48,
-    img: "/../public/images/37.png",
+    img: "/37.png",
     name: "City Center Studio in Mitte",
 
     rating: 4.5,
@@ -500,7 +500,7 @@ const residents = [
   },
   {
     id: 49,
-    img: "/../public/images/49.png",
+    img: "/49.png",
     name: "Charming Apartment in Moabit",
 
     rating: 4.7,
@@ -511,7 +511,7 @@ const residents = [
   },
   {
     id: 50,
-    img: "/../public/images/50.png",
+    img: "/50.png",
     name: "Rooftop Penthouse in Schöneberg",
 
     rating: 4.9,
@@ -525,28 +525,28 @@ const residents = [
 const reviews = [
   {
     id: 1,
-    img: "/../public/images/person1.png",
+    img: "/person1.png",
     name: "Jane Cooper",
     work: "Marketing Coordinator",
     text: "I can't thank SogeKing Real Estate Company enough for their outstanding service. From the moment I started working with them, their team of dedicated professionals went above and beyond to help me find my dream home.",
   },
   {
     id: 2,
-    img: "/../public/images/person2.png",
+    img: "/person2.png",
     name: "Cameron Williamson",
     work: "Web Designer",
     text: "Choosing SogeKing Real Estate Company was the best decision I made for my home-buying journey. Their team of knowledgeable agents provided invaluable guidance and support throughout the entire process.",
   },
   {
     id: 3,
-    img: "/../public/images/person3.png",
+    img: "/person3.png",
     name: "Darrell Steward",
     work: "President of Sales",
     text: "“I had an exceptional experience with SogeKing Real Estate Company. Their team of experts was highly professional and went the extra mile to assist me in finding the perfect property. They provided comprehensive market insights.”",
   },
   {
     id: 4,
-    img: "/../public/images/person4.png",
+    img: "/person4.png",
     name: "Eleanor Pena",
     work: "Medical Assistant",
     text: "I am incredibly grateful to SogeKing Real Estate Company for their outstanding service. Their team of friendly and knowledgeable agents made the process of selling my home stress-free and efficient.",
