@@ -1,7 +1,7 @@
 const residents = [
   {
     id: 1,
-    img: "../public/images/1.png",
+    img: "/../public/images/1.png",
     name: "Duncans Mills",
 
     rating: 4.9,
