@@ -11,7 +11,10 @@ import Link from "next/link";
 import { loadOptions } from "../api/api";
 
 import "../products.css";
-import Map from "../components/Map";
+
+import dynamic from "next/dynamic";
+
+const MyMap = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
 let mapPos;
 
@@ -98,6 +101,8 @@ function Page() {
     }
   };
   const handleProductClick = (lat, long) => {
+    if (typeof window == undefined) return;
+
     window.scrollTo({
       top: mapRef.current.offsetTop,
       behavior: "smooth",
@@ -314,7 +319,7 @@ function Page() {
             } right-0 w-full h-full`}
             style={{ zIndex: 50 }}
           >
-            <Map
+            <MyMap
               center={[search.lat, search.long]}
               residents={sortedResidents}
             />

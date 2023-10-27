@@ -3,7 +3,10 @@ import { residents } from "@/app/data";
 import Image from "next/image";
 import starIcon from "../../../public/images/star.svg";
 import sofaImg from "../../../public/images/sofa.svg";
-import Map from "@/app/components/Map";
+
+import dynamic from "next/dynamic";
+
+const MyMap = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
 function Resident({ params }) {
   const currentResident = residents.find((resident) => {
@@ -59,7 +62,7 @@ function Resident({ params }) {
             </div>
           </div>
         </div>
-        <Map
+        <MyMap
           center={[currentResident.lat, currentResident.long]}
           residents={[currentResident]}
         />
