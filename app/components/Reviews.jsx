@@ -6,13 +6,11 @@ import { reviews } from "../data";
 function Reviews() {
   return (
     <section className="px-8 md:px-28 mt-28">
-      <div className="flex justify-between">
-        <h2 className="text-3xl md:text-5xl font-medium">Our Testimotals</h2>
-        <Link href="/reviews" className="flex items-center">
+      <h2 className="text-3xl md:text-5xl font-medium">Our Testimonials</h2>
+      {/* <Link href="/reviews" className="flex items-center">
           <h6 className="text-customgray mr-[10px]">See all</h6>
           <Image src={arrowRight} alt="" width={24} height={24} />
-        </Link>
-      </div>
+        </Link> */}
       <div className="grid lg:grid-cols-2 gap-x-[34px] gap-y-[50px] mt-8">
         {reviews.map((review) => {
           return (

@@ -69,3 +69,7 @@
 .leaflet-container {
   height: 100%;
 }
+
+.hscreen-navbar {
+  height: calc(100vh - 76px);
+}

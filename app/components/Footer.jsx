@@ -33,15 +33,21 @@ function Footer() {
         </div>
         <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">Explore Us</h3>
-          <Link className="text-customgray mt-2" href="/career">
+          <Link className="text-customgray mt-2" href="/about/#career">
             Our Career
           </Link>
-          <Link className="text-customgray mt-2" href="/privacy">
+          <Link className="text-customgray mt-2" href="/about">
             Privacy
           </Link>
-          <Link className="text-customgray mt-2" href="/terms">
+          <Link className="text-customgray mt-2" href="/about">
             Terms & Conditions
           </Link>
+          <div className="flex text-xs mt-2 text-customgray">
+            <Link href="https://icons8.com/icon/ljkZKAqMoIYA/clock">
+              Clock&nbsp;
+            </Link>
+            icon by <Link href="https://icons8.com">&nbsp;Icons8</Link>
+          </div>
         </div>
         <div className="flex flex-col min-[860px]:mt-4">
           <h3 className="mb-4 text-xl font-bold">Connect Us</h3>
@@ -49,7 +55,7 @@ function Footer() {
             className="text-customgray mt-2"
             href="mailto:support@rentwonder.com"
           >
-            support@rentwonder.com
+            support@de.de
           </Link>
           <Link className="text-customgray mt-2" href="tel:+49-123-4001">
             +49-123-4001

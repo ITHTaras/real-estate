@@ -18,7 +18,7 @@ function Callback() {
   };
   return (
     <section className="w-full flex flex-col justify-center items-center mt-24 px-7 md:px-12 lg:px-48 py-44 callback">
-      <h1 className="text-white max-lg:text-center text-3xl lg:text-6xl font-semibold">
+      <h1 className="text-white text-center text-3xl lg:text-6xl font-semibold">
         Get our special prices & latest info
       </h1>
       <div className="sm:w-4/5 flex items-center mt-20 rounded-lg bg-white px-[30px] py-[18px]">

@@ -12,6 +12,7 @@ function Navbar() {
 
   return (
     <nav className="px-8 min-[500px]:px-28 mt-10 color-[#191726]">
+      {/* Mobile */}
       <div
         className={`${
           menuOpened ? "" : "hidden"
@@ -20,7 +21,7 @@ function Navbar() {
         <button className="ml-5" onClick={() => setMenuOpened(false)}>
           <Image src={xMark} width={60} height={60} alt="" />
         </button>
-        <div className="w-full mt-3 h-[2px] bg-slate-600"></div>
+        <div className="w-full mt-3 h-[2px] bg-[#d2d3d495]"></div>
         <div className="flex flex-col ml-9 mt-3">
           <h1
             className="mt-4 text-2xl font-semibold"
@@ -38,12 +39,6 @@ function Navbar() {
             className="mt-4 text-2xl font-semibold"
             onClick={() => setMenuOpened(false)}
           >
-            <Link href="/reviews">Reviews</Link>
-          </h1>
-          <h1
-            className="mt-4 text-2xl font-semibold"
-            onClick={() => setMenuOpened(false)}
-          >
             <Link href="/residents">Residents</Link>
           </h1>
           <h1
@@ -53,29 +48,20 @@ function Navbar() {
             <Link href="/">Services</Link>
           </h1>
         </div>
-        <div className="w-full mt-4 h-[2px] bg-slate-600"></div>
-        <div className="mt-4 ml-6 flex">
-          <Image
-            className="max-h-9"
-            src={loginIcon}
-            width={36}
-            height={36}
-            alt=""
-          />
-          <div className="flex flex-col">
-            <h1
-              onClick={() => setMenuOpened(false)}
-              className="text-2xl font-semibold"
-            >
-              <Link href="/">Register</Link>
-            </h1>
-            <h1
-              onClick={() => setMenuOpened(false)}
-              className="text-2xl font-semibold mt-3"
-            >
-              <Link href="/">Login</Link>
-            </h1>
-          </div>
+        <div className="w-full my-4 h-[2px] bg-[#d2d3d495]"></div>
+        <div className="px-4">
+          <h1
+            onClick={() => setMenuOpened(false)}
+            className="text-center py-3 rounded-lg bg-customblue text-base font-semibold text-white"
+          >
+            <Link href="/register">Register</Link>
+          </h1>
+          <h1
+            onClick={() => setMenuOpened(false)}
+            className="py-3 rounded-lg mt-3 text-[#344054] text-base font-semibold border border-[#D0D5DD] text-center"
+          >
+            <Link href="/login">Login</Link>
+          </h1>
         </div>
       </div>
 
@@ -90,9 +76,6 @@ function Navbar() {
           <Link href="/about" className="mr-10">
             About Us
           </Link>
-          <Link href="/reviews" className="mr-10">
-            Reviews
-          </Link>
           <Link href="/residents" className="mr-10">
             Residents
           </Link>
@@ -101,11 +84,11 @@ function Navbar() {
           </Link>
         </div>
         <div className="hidden xl:block">
-          <Link href="/" className="mr-5">
+          <Link href="/register" className="mr-5">
             Register
           </Link>
           <Link
-            href="/"
+            href="/login"
             className="bg-customblue text-white rounded-[4px] px-12 py-3"
           >
             Login

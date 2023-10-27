@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Tooltip, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useMap } from "react-leaflet/hooks";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
