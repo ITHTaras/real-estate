@@ -4,7 +4,6 @@ import Link from "next/link";
 
 import menu from "../../public/images/menu.svg";
 import xMark from "../../public/images/x-mark.svg";
-import loginIcon from "../../public/images/login.svg";
 import { useState } from "react";
 
 function Navbar() {

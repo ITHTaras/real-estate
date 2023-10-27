@@ -1,6 +1,4 @@
 import Image from "next/image";
-import arrowRight from "../../public/images/arrow-right.svg";
-import Link from "next/link";
 import { reviews } from "../data";
 
 function Reviews() {

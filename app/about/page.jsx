@@ -1,7 +1,6 @@
 import Image from "next/image";
 import aboutUsImg from "../../public/images/about-us.png";
 import clockImg from "../../public/images/clock.svg";
-import workerImg from "../../public/images/person1.png";
 import { jobs } from "../data";
 import WorldMap from "../components/WorldMap";
 
@@ -169,7 +168,7 @@ function About() {
             className="mt-8 rounded-full border border-[#E0E0E0]"
             width={56}
             height={56}
-            src={workerImg}
+            src={"/person1.png"}
             alt=""
           />
           <h4 className="mt-4 text-base font-semibold">Jane Cooper</h4>
