@@ -27,6 +27,7 @@ function Page() {
   const [freezeMap, setFreezeMap] = useState(false);
 
   useEffect(() => {
+    if (typeof window == undefined) return;
     if (window.innerWidth < 768) return;
 
     mapPos =
@@ -34,6 +35,7 @@ function Page() {
       document.body.getBoundingClientRect().top;
 
     window.addEventListener("scroll", () => {
+      if (typeof window === undefined) return;
       if (!pageRef.current) return;
 
       if (mapPos + document.body.getBoundingClientRect().top <= 0) {

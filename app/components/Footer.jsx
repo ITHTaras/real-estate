@@ -27,7 +27,7 @@ function Footer() {
           <Link className="text-customgray mt-2" href="/residents">
             Products
           </Link>
-          <Link className="text-customgray mt-2" href="/categories">
+          <Link className="text-customgray mt-2" href="/about">
             Categories
           </Link>
         </div>

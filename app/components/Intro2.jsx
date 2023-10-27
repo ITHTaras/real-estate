@@ -9,16 +9,17 @@ function Intro2() {
   const benefitRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      try {
-        if (window.scrollY + 300 > benefitRef.current.offsetTop)
-          setCanCount(true);
-      } catch (err) {}
-    };
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (typeof window !== undefined && benefitRef.current)
+          if (window.scrollY + 300 > benefitRef.current.offsetTop)
+            setCanCount(true);
+      },
+      { passive: true }
+    );
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", null);
   }, []);
 
   return (
