@@ -5,6 +5,7 @@ import starIcon from "../../../public/images/star.svg";
 import sofaImg from "../../../public/images/sofa.svg";
 
 import dynamic from "next/dynamic";
+import { notFound } from "next/navigation";
 
 const MyMap = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
@@ -12,6 +13,7 @@ function Resident({ params }) {
   const currentResident = residents.find((resident) => {
     return resident.id == params.id;
   });
+  if (!currentResident) notFound();
 
   return (
     <div className="px-12 min-[880px]:px-32 grid grid-cols-5 mt-10 mb-[700px] md:mb-96">
